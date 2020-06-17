@@ -25,15 +25,6 @@ export class NotesComponent implements OnInit {
     this.noteService.getNote().subscribe(
       (res: any) => {
         this.notes = res.data.data.reverse();
-        console.log('note Array', this.notes);
-
-        // console.log('note-Response', res.data.data);
-        console.log('======', typeof res.data.data);
-
-        console.log('this note', typeof this.notes);
-        this.snackbar.open('Note Display', '', {
-          duration: 1000,
-        });
       },
       (err) => {
         this.snackbar.open('server error', err);

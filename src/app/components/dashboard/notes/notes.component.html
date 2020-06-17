@@ -1,2 +1,4 @@
 <app-createnote (getNotes)="getNotes()"></app-createnote>
-<app-displaynotes *ngFor="let item of notes" [note]="item"></app-displaynotes>
+<div fxLayout="row wrap">
+  <app-displaynotes *ngFor="let item of notes" [note]="item"></app-displaynotes>
+</div>
