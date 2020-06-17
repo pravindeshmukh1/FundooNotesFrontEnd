@@ -71,7 +71,7 @@ export class RegisterComponent implements OnInit {
         lastName: this.LastName.value,
         email: this.Email.value,
         password: this.Password.value,
-        service: 'Basic',
+        service: 'advance',
       };
       this.userService.register(userData).subscribe(
         (resp) => {

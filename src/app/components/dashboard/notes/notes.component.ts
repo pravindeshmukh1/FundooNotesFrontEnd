@@ -16,9 +16,7 @@ export class NotesComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    console.log('no In It');
     this.getNotes();
-    console.log('no In It - done');
   }
 
   getNotes() {

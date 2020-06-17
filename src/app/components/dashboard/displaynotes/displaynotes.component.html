@@ -1,7 +1,9 @@
-<div  class="display" fxLayout="row wrap" fxLayoutGap="5px">
+<div class="display" fxLayout="column wrap" fxLayoutGap="5px">
   <mat-card>
     <div>{{ note.title }}</div>
-    <div>{{ note.description }}</div>
+    <div>
+      <textarea>{{ note.description }}</textarea>
+    </div>
     <div class="icons"><app-icons (color)="setColor($event)"></app-icons></div>
   </mat-card>
 </div>
