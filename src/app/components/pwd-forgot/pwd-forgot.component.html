@@ -1,0 +1,36 @@
+<div fxLayoutAlign="center center" fxFlexFill>
+  <mat-card fxLayout="column" fxFlex="500px" fxFlex.xs="100%">
+    <mat-card-header fxFlex="50px" fxLayoutAlign="center">
+      <mat-card-title>Forgot Password</mat-card-title>
+    </mat-card-header>
+    <div>
+      <mat-form-field
+        fxLayout="column"
+        fxLayoutAlign="end stretch"
+        appearance="outline"
+      >
+        <mat-label>Email Id</mat-label>
+        <input
+          matInput
+          [formControl]="Email"
+          placeholder="abc@gmail.com "
+          autocomplete="off"
+        />
+        <mat-error *ngIf="Email.invalid">{{
+          getEmailErrorMessage()
+        }}</mat-error>
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="end end">
+      <button
+        mat-button
+        type="submit"
+        mat-raised-button
+        color="primary"
+        (click)="onNext()"
+      >
+        Send Reset Link
+      </button>
+    </div>
+  </mat-card>
+</div>

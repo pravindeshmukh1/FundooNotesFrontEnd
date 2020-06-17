@@ -1,0 +1,66 @@
+<div [formGroup]="noteData" fxLayoutAlign="center center">
+  <mat-card *ngIf="!isPopUp" (click)="openCard()">
+    <div>
+      <input
+        autocomplete="off"
+        autofocus
+        matInput
+        placeholder="Take a note.."
+      />
+    </div>
+  </mat-card>
+  <mat-card *ngIf="isPopUp">
+    <div fxLayout="column" fxLayoutGap="1pc">
+      <div>
+        <input
+          autocomplete="off"
+          matInput
+          autofocus
+          placeholder="Title"
+          formControlName="title"
+          fxFlex="100"
+        />
+        <button
+          matSuffix
+          mat-icon-button
+          matTooltip="Pin note"
+          matTooltipPosition="below"
+          (click)="pinNote()"
+          *ngIf="!pinned"
+        >
+          <img src="../../../../assets/imeges/pin-outline.svg" />
+        </button>
+        <button
+          matSuffix
+          mat-icon-button
+          matTooltip="Unpin note"
+          matTooltipPosition="below"
+          (click)="pinNote()"
+          *ngIf="pinned"
+        >
+          <img src="../../../../assets/imeges/pin.svg" />
+        </button>
+      </div>
+      <div fxLayout="column" fxLayoutGap="10px">
+        <div>
+          <textarea
+            matInput
+            autofocus
+            autocomplete="off"
+            placeholder="Take a note..."
+            formControlName="description"
+            matTextareaAutosize
+            matAutosizeMinRows="1"
+            matAutosizeMaxRows="25"
+          ></textarea>
+        </div>
+      </div>
+      <div fxLayout="row">
+        <app-icons></app-icons>
+        <button class="close" mat-button (click)="openCard(); onClose()">
+          Close
+        </button>
+      </div>
+    </div>
+  </mat-card>
+</div>

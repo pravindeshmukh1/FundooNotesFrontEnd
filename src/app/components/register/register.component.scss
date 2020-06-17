@@ -1,0 +1,16 @@
+$color: blue;
+
+.mat-card-title {
+  color: $color;
+  font-size: 2em;
+}
+.mat-form-field,
+input {
+  width: 100%;
+}
+
+.mat-card {
+  -webkit-box-shadow: -1px 12px 23px -3px rgba(35, 36, 41, 1);
+  -moz-box-shadow: -1px 12px 23px -3px rgba(35, 36, 41, 1);
+  box-shadow: -1px 12px 23px -3px rgba(35, 36, 41, 1);
+}

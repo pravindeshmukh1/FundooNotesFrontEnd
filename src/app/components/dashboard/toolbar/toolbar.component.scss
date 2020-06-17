@@ -1,0 +1,59 @@
+$bgcolor: transparent;
+$textcolor: grayscale(
+  $color: #010000a1,
+);
+
+.mat-toolbar {
+  background-color: $bgcolor;
+}
+
+.mat-icon {
+  margin-left: 4%;
+  margin-right: 15%;
+  background-color: $bgcolor;
+}
+
+.mat-sidenav {
+  width: 15%;
+  border: $bgcolor;
+  font-weight: 500;
+}
+.mat-sidenav-container {
+  margin-top: 3.5%;
+  background-color: $bgcolor;
+}
+
+.menu {
+  margin-left: 0.2%;
+}
+.fundooTitle {
+  font-size: 20px;
+}
+.mat-form-field {
+  width: 30%;
+  margin-top: 4%;
+}
+
+.titleImage {
+  height: 32px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.titleImage :hover {
+  color: gray;
+  opacity: 5px;
+}
+
+.fundooTitle {
+  color: $textcolor;
+  opacity: 10px;
+}
+.profile {
+  margin-left: 2em;
+}
+
+.profile ::ng-deep .mat-select-arrow {
+  border-left: 0px solid transparent;
+  border-right: 0px solid transparent;
+}

@@ -1,0 +1,55 @@
+<div class="icon-menu">
+  <mat-list-item>
+    <button mat-icon-button matTooltip="Remind me">
+      <mat-icon class="icons">
+        add_alert
+      </mat-icon>
+    </button>
+
+    <button mat-icon-button matTooltip="Collaborator">
+      <mat-icon class="icons">
+        person_add_alt_1
+      </mat-icon>
+    </button>
+
+    <button
+      mat-icon-button
+      matTooltip="Change color"
+      [matMenuTriggerFor]="colorMenu"
+    >
+      <mat-icon class="icons">
+        palette_outline
+      </mat-icon>
+      <mat-menu #colorMenu="matMenu">
+        <div class="pop">
+          <div *ngFor="let color of colors" class="colorButton">
+            <button
+              mat-mini-fab
+              [style.background]="color.code"
+              [matTooltip]="color?.name"
+              (click)="setColor(color.code)"
+            ></button>
+          </div>
+        </div>
+      </mat-menu>
+    </button>
+
+    <button mat-icon-button matTooltip="Add image">
+      <mat-icon class="icons">
+        insert_photo
+      </mat-icon>
+    </button>
+
+    <button mat-icon-button matTooltip="Archive">
+      <mat-icon class="icons">
+        archive_outline
+      </mat-icon>
+    </button>
+
+    <button mat-icon-button matTooltip="More">
+      <mat-icon class="icons">
+        more_vert
+      </mat-icon>
+    </button>
+  </mat-list-item>
+</div>

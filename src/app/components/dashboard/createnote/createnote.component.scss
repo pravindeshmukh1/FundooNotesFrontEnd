@@ -1,0 +1,16 @@
+.close {
+  margin-left: 18em;
+}
+mat-card {
+  margin-top: 2em;
+  width: 32em;
+  border-radius: 0.5em;
+  border-color: gray;
+  font-size: small;
+  border: 1px outset gray;
+}
+::placeholder {
+  font-size: medium;
+  font-weight: 600;
+  font-family: serif;
+}
