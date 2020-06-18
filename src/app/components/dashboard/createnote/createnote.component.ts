@@ -19,6 +19,12 @@ export class CreatenoteComponent implements OnInit {
   isPopUp: boolean = false;
 
   @Output() getNotes: EventEmitter<any> = new EventEmitter();
+  
+  noteArchive = {
+    title: null,
+    isArchived: false,
+  };
+
   constructor(
     private noteService: NoteService,
     private formBuilder: FormBuilder,

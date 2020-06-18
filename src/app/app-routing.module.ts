@@ -10,6 +10,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NotesComponent } from './components/dashboard/notes/notes.component';
 import { AuthGuard } from './guard/auth.guard';
 import { DisplaynotesComponent } from './components/dashboard/displaynotes/displaynotes.component';
+import { ArchiveComponent } from './components/dashboard/archive/archive.component';
 const routes: Routes = [
   {
     path: '',
@@ -39,6 +40,7 @@ const routes: Routes = [
       { path: '', component: NotesComponent },
       { path: 'notes', component: NotesComponent },
       { path: 'getAllNotes', component: DisplaynotesComponent },
+      { path: 'archive', component: ArchiveComponent },
     ],
   },
 ];

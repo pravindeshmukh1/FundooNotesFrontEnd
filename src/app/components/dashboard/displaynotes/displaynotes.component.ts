@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { NoteService } from 'src/app/services/note.service/note.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-displaynotes',
@@ -8,9 +9,13 @@ import { NoteService } from 'src/app/services/note.service/note.service';
 })
 export class DisplaynotesComponent implements OnInit {
   @Input() note: any;
+  @Output() getNotes: EventEmitter<any> = new EventEmitter();
 
   pinned: boolean = false;
-  constructor(private noteService: NoteService) {}
+  constructor(
+    private noteService: NoteService,
+    private snackBar: MatSnackBar
+  ) {}
 
   pinNote() {
     this.pinned = !this.pinned;
@@ -19,13 +24,38 @@ export class DisplaynotesComponent implements OnInit {
   ngOnInit() {}
 
   setColor(color) {
-    console.log('Color', color);
     let noteData = {
-      id: this.note['id'],
+      noteIdList: [this.note.id],
       color: color,
     };
     this.noteService.changeColor(noteData).subscribe((res) => {
-      console.log('setColor Respose', res);
+      this.getNotes.emit(color);
+    });
+  }
+
+  setArchive() {
+    let noteData = {
+      noteIdList: [this.note.id],
+      isArchived: true,
+    };
+    this.noteService.archiveNote(noteData).subscribe((res) => {
+      this.getNotes.emit();
+      this.snackBar.open('Archive note', '', {
+        duration: 2000,
+      });
+    });
+  }
+
+  setUnArchive() {
+    let noteData = {
+      noteIdList: [this.note.id],
+      isArchived: false,
+    };
+    this.noteService.unArchiveNote(noteData).subscribe((res) => {
+      this.getNotes.emit();
+      this.snackBar.open('Un Archive note', '', {
+        duration: 2000,
+      });
     });
   }
 }

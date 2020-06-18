@@ -1,0 +1,8 @@
+<div fxLayout="row wrap">
+  <app-displaynotes
+    (getNotes)="getArchiveNotes()"
+    *ngFor="let item of allArchivenNote"
+    [note]="item"
+  >
+  </app-displaynotes>
+</div>

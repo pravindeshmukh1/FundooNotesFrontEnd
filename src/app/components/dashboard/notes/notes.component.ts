@@ -22,7 +22,11 @@ export class NotesComponent implements OnInit {
   getNotes() {
     this.noteService.getNote().subscribe(
       (res: any) => {
-        this.notes = res.data.data.reverse();
+        let notes = res.data.data.filter((element: any) => {
+          return element.isArchived === false;
+        });
+        this.notes = notes;
+        this.notes.reverse();
       },
       (err) => {
         this.snackbar.open('server error', err);

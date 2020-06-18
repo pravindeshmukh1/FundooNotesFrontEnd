@@ -27,6 +27,7 @@ import { IconsComponent } from './components/dashboard/icons/icons.component';
 import { DisplaynotesComponent } from './components/dashboard/displaynotes/displaynotes.component';
 import { NotesComponent } from './components/dashboard/notes/notes.component';
 import { NoteService } from './services/note.service/note.service';
+import { ArchiveComponent } from './components/dashboard/archive/archive.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { NoteService } from './services/note.service/note.service';
     IconsComponent,
     DisplaynotesComponent,
     NotesComponent,
+    ArchiveComponent,
   ],
   imports: [
     BrowserModule,

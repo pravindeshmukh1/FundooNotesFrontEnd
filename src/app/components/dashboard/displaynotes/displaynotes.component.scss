@@ -1,12 +1,16 @@
 .display mat-card {
   margin-top: 2em;
   margin-left: 8em;
-  width: 400px;
-  border-radius: 0.1em;
+  width: 300px;
+  border-radius: 0.5em;
   border-color: gray;
   font-size: small;
   border: 0.1px inset gray;
 }
 .icons {
   margin-top: 1em;
+}
+
+.title {
+  font-weight: 500;
 }
