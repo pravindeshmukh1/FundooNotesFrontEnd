@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-icons',
@@ -6,7 +6,11 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./icons.component.scss'],
 })
 export class IconsComponent implements OnInit {
+  @Input() archivedNote: any;
   @Output() color: EventEmitter<any> = new EventEmitter();
+  @Output() archive: EventEmitter<any> = new EventEmitter();
+  @Output() unarchive: EventEmitter<any> = new EventEmitter();
+
   constructor() {}
 
   ngOnInit(): void {}
@@ -28,5 +32,11 @@ export class IconsComponent implements OnInit {
 
   setColor(color: any) {
     this.color.emit(color);
+  }
+  archiveNote() {
+    this.archive.emit();
+  }
+  unArchiveNote() {
+    this.unarchive.emit();
   }
 }

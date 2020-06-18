@@ -25,7 +25,7 @@
           <div *ngFor="let color of colors" class="colorButton">
             <button
               mat-mini-fab
-              [style.background]="color.code"
+              [style.background]="color?.code"
               [matTooltip]="color?.name"
               (click)="setColor(color.code)"
             ></button>
@@ -40,9 +40,22 @@
       </mat-icon>
     </button>
 
-    <button mat-icon-button matTooltip="Archive">
-      <mat-icon class="icons">
-        archive_outline
+    <button
+      mat-icon-button
+      matTooltip="Archive"
+      *ngIf="archivedNote.isArchived !== true"
+    >
+      <mat-icon class="icons" (click)="archiveNote()">
+        archive
+      </mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      matTooltip="UnArchive"
+      *ngIf="archivedNote.isArchived"
+    >
+      <mat-icon class="icons" (click)="unArchiveNote()">
+        unarchive
       </mat-icon>
     </button>
 
