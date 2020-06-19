@@ -7,10 +7,11 @@ import { RegisterComponent } from './components/register/register.component';
 import { PwdForgotComponent } from './components/pwd-forgot/pwd-forgot.component';
 import { PwdResetComponent } from './components/pwd-reset/pwd-reset.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { NotesComponent } from './components/dashboard/notes/notes.component';
+import { NotesComponent } from './components/notes/notes.component';
 import { AuthGuard } from './guard/auth.guard';
-import { DisplaynotesComponent } from './components/dashboard/displaynotes/displaynotes.component';
-import { ArchiveComponent } from './components/dashboard/archive/archive.component';
+import { DisplaynotesComponent } from './components/displaynotes/displaynotes.component';
+import { ArchiveComponent } from './components/archive/archive.component';
+import { TrashComponent } from './components/trash/trash.component';
 const routes: Routes = [
   {
     path: '',
@@ -41,6 +42,7 @@ const routes: Routes = [
       { path: 'notes', component: NotesComponent },
       { path: 'getAllNotes', component: DisplaynotesComponent },
       { path: 'archive', component: ArchiveComponent },
+      { path: 'trash', component: TrashComponent },
     ],
   },
 ];

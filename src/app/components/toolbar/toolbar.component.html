@@ -105,12 +105,14 @@
           Archive
         </mat-list-item>
       </div>
-      <mat-list-item>
-        <mat-icon class="menu-item" mat-button (click)="showInfo()"
-          >delete_outline</mat-icon
-        >
-        Trash
-      </mat-list-item>
+      <div routerLink="/dashboard/trash" routerLinkActive="notes">
+        <mat-list-item>
+          <mat-icon class="menu-item" mat-button (click)="showInfo()"
+            >delete_outline</mat-icon
+          >
+          Trash
+        </mat-list-item>
+      </div>
     </mat-nav-list>
   </mat-sidenav>
 

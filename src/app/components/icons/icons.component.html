@@ -1,4 +1,4 @@
-<div class="icon-menu">
+<div class="icon-menu" *ngIf="archivedNote.isDeleted !== true">
   <mat-list-item>
     <button mat-icon-button matTooltip="Remind me">
       <mat-icon class="icons">
@@ -52,17 +52,30 @@
     <button
       mat-icon-button
       matTooltip="UnArchive"
-      *ngIf="archivedNote.isArchived"
+      *ngIf="archivedNote.isArchived === true"
     >
       <mat-icon class="icons" (click)="unArchiveNote()">
         unarchive
       </mat-icon>
     </button>
 
-    <button mat-icon-button matTooltip="More">
+    <button mat-icon-button matTooltip="More" [matMenuTriggerFor]="moreMenu">
       <mat-icon class="icons">
         more_vert
       </mat-icon>
+      <mat-menu #moreMenu="matMenu">
+        <div>
+          <div mat-menu-item (click)="deleteNote()">
+            Delete note
+          </div>
+        </div>
+      </mat-menu>
     </button>
   </mat-list-item>
 </div>
+
+<app-trashicons
+  *ngIf="archivedNote.isDeleted === true"
+  (delete)="deleteNotePermanent()"
+  (restore)="restoreNote()"
+></app-trashicons>

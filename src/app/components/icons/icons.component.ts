@@ -10,6 +10,9 @@ export class IconsComponent implements OnInit {
   @Output() color: EventEmitter<any> = new EventEmitter();
   @Output() archive: EventEmitter<any> = new EventEmitter();
   @Output() unarchive: EventEmitter<any> = new EventEmitter();
+  @Output() delete: EventEmitter<any> = new EventEmitter();
+  @Output() deletePermanent: EventEmitter<any> = new EventEmitter();
+  @Output() restorePermanent: EventEmitter<any> = new EventEmitter();
 
   constructor() {}
 
@@ -38,5 +41,14 @@ export class IconsComponent implements OnInit {
   }
   unArchiveNote() {
     this.unarchive.emit();
+  }
+  deleteNote() {
+    this.delete.emit();
+  }
+  deleteNotePermanent() {
+    this.deletePermanent.emit();
+  }
+  restoreNote() {
+    this.restorePermanent.emit();
   }
 }

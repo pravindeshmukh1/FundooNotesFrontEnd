@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from '../http.service/http.service';
-import { R3ResolvedDependencyType } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root',
@@ -21,5 +20,17 @@ export class NoteService {
   }
   unArchiveNote(note: Object) {
     return this.httpService.postNote(`notes/archiveNotes`, note);
+  }
+  deleteNote(note: Object) {
+    return this.httpService.postNote(`notes/trashNotes`, note);
+  }
+  getTrashNotes() {
+    return this.httpService.getNotes(`notes/getTrashNotesList`);
+  }
+  restoreNote(note) {
+    return this.httpService.postNote(`notes/updateNotes`, note);
+  }
+  deleteNotePermanent(note) {
+    return this.httpService.postNote(`notes/deleteForeverNotes`, note);
   }
 }

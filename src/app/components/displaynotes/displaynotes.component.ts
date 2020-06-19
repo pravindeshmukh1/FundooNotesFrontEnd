@@ -58,4 +58,34 @@ export class DisplaynotesComponent implements OnInit {
       });
     });
   }
+
+  deleteNote() {
+    let noteData = {
+      noteIdList: [this.note.id],
+      isDeleted: true,
+    };
+    this.noteService.deleteNote(noteData).subscribe((res) => {
+      console.log('Delete Note', res);
+      this.getNotes.emit();
+    });
+  }
+  deleteNotePermanent() {
+    let noteData = {
+      noteIdList: [this.note.id],
+    };
+    this.noteService.deleteNotePermanent(noteData).subscribe((res) => {
+      this.getNotes.emit();
+    });
+  }
+  restoreNote() {
+    let noteData = {
+      noteIdList: [this.note.id],
+      isDeleted: false,
+    };
+    this.noteService.restoreNote(noteData).subscribe((res) => {
+      console.log('update note', res);
+
+      this.getNotes.emit();
+    });
+  }
 }

@@ -6,7 +6,7 @@ import {
   Validators,
   FormBuilder,
 } from '@angular/forms';
-import { NoteService } from '../../../services/note.service/note.service';
+import { NoteService } from '../../services/note.service/note.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({

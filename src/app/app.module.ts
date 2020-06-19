@@ -13,21 +13,23 @@ import { UserService } from './services/user.service/user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { PwdResetComponent } from './components/pwd-reset/pwd-reset.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { ToolbarComponent } from './components/dashboard/toolbar/toolbar.component';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { CreatenoteComponent } from './components/dashboard/createnote/createnote.component';
-import { SearchboxComponent } from './components/dashboard/searchbox/searchbox.component';
+import { CreatenoteComponent } from './components/createnote/createnote.component';
+import { SearchboxComponent } from './components/searchbox/searchbox.component';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
-import { IconsComponent } from './components/dashboard/icons/icons.component';
-import { DisplaynotesComponent } from './components/dashboard/displaynotes/displaynotes.component';
-import { NotesComponent } from './components/dashboard/notes/notes.component';
+import { IconsComponent } from './components/icons/icons.component';
+import { DisplaynotesComponent } from './components/displaynotes/displaynotes.component';
+import { NotesComponent } from './components/notes/notes.component';
 import { NoteService } from './services/note.service/note.service';
-import { ArchiveComponent } from './components/dashboard/archive/archive.component';
+import { ArchiveComponent } from './components/archive/archive.component';
+import { TrashComponent } from './components/trash/trash.component';
+import { TrashiconsComponent } from './components/trashicons/trashicons.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,8 @@ import { ArchiveComponent } from './components/dashboard/archive/archive.compone
     DisplaynotesComponent,
     NotesComponent,
     ArchiveComponent,
+    TrashComponent,
+    TrashiconsComponent,
   ],
   imports: [
     BrowserModule,

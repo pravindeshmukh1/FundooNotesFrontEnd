@@ -1,0 +1,8 @@
+<div fxLayout="row wrap">
+  <app-displaynotes
+    (getNotes)="getTrashNotes()"
+    *ngFor="let item of trash"
+    [note]="item"
+  >
+  </app-displaynotes>
+</div>

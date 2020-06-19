@@ -10,6 +10,9 @@
         [archivedNote]="note"
         (archive)="setArchive()"
         (unarchive)="setUnArchive()"
+        (delete)="deleteNote()"
+        (deletePermanent)="deleteNotePermanent()"
+        (restorePermanent)="restoreNote()"
       ></app-icons>
     </div>
   </mat-card>
