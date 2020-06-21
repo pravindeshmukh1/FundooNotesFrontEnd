@@ -1,11 +1,4 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-
-import {
-  FormGroup,
-  FormControl,
-  Validators,
-  FormBuilder,
-} from '@angular/forms';
 import { NoteService } from '../../services/note.service/note.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -17,28 +10,22 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class CreatenoteComponent implements OnInit {
   pinned: boolean = false;
   isPopUp: boolean = false;
+  title: string = null;
+  description: string;
 
   @Output() getNotes: EventEmitter<any> = new EventEmitter();
-  
+
   noteArchive = {
-    title: null,
     isArchived: false,
+    isDeleted: false,
+    isPined: false,
   };
 
   constructor(
     private noteService: NoteService,
-    private formBuilder: FormBuilder,
     private snackBar: MatSnackBar
   ) {}
-
-  noteData: FormGroup;
-  noteValidator() {
-    this.noteData = this.formBuilder.group({
-      title: new FormControl('', [Validators.required]),
-      description: new FormControl('', [Validators.required]),
-    });
-  }
-
+  ngOnInit(): void {}
   pinNote() {
     this.pinned = !this.pinned;
   }
@@ -48,14 +35,15 @@ export class CreatenoteComponent implements OnInit {
   }
 
   onClose() {
-    let note = {
-      title: this.noteData.value.title,
-      description: this.noteData.value.description,
+    let node = {
+      title: this.title,
+      description: this.description,
     };
-    this.noteService.addNote(note).subscribe(
+    this.noteService.addNote(node).subscribe(
       (res: any) => {
         this.getNotes.emit();
-        this.noteData = null;
+        this.title = null;
+        this.description = null;
         this.snackBar.open('Note Added', '', {
           duration: 4000,
         });
@@ -66,9 +54,5 @@ export class CreatenoteComponent implements OnInit {
         });
       }
     );
-  }
-
-  ngOnInit(): void {
-    this.noteValidator();
   }
 }

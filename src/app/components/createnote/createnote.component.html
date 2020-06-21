@@ -1,4 +1,4 @@
-<div [formGroup]="noteData" fxLayoutAlign="center center">
+<div fxLayoutAlign="center center">
   <mat-card *ngIf="!isPopUp" (click)="openCard()">
     <div>
       <input
@@ -6,20 +6,24 @@
         autofocus
         matInput
         placeholder="Take a note.."
+        type="text"
       />
     </div>
   </mat-card>
   <mat-card *ngIf="isPopUp">
-    <div fxLayout="column" fxLayoutGap="1pc">
-      <div>
-        <input
-          autocomplete="off"
+    <div fxLayout="column" fxLayoutGap="5px">
+      <div fxLayoutAlign="end start">
+        <textarea
           matInput
           autofocus
+          autocomplete="off"
           placeholder="Title"
-          formControlName="title"
-          fxFlex="100"
-        />
+          [(ngModel)]="title"
+          matTextareaAutosize
+          matAutosizeMinRows="1"
+          matAutosizeMaxRows="25"
+        ></textarea>
+
         <button
           matSuffix
           mat-icon-button
@@ -28,7 +32,7 @@
           (click)="pinNote()"
           *ngIf="!pinned"
         >
-          <img src="../../../../assets/imeges/pin-outline.svg" />
+          <img src="../../../assets/imeges/pin-outline.svg" />
         </button>
         <button
           matSuffix
@@ -38,17 +42,17 @@
           (click)="pinNote()"
           *ngIf="pinned"
         >
-          <img src="../../../../assets/imeges/pin.svg" />
+          <img src="../../../assets/imeges/pin.svg" />
         </button>
       </div>
-      <div fxLayout="column" fxLayoutGap="10px">
+      <div fxLayout="column" fxLayoutGap="5px">
         <div>
           <textarea
             matInput
             autofocus
             autocomplete="off"
             placeholder="Take a note..."
-            formControlName="description"
+            [(ngModel)]="description"
             matTextareaAutosize
             matAutosizeMinRows="1"
             matAutosizeMaxRows="25"
