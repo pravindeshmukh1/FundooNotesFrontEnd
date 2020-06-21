@@ -23,7 +23,7 @@ export class NotesComponent implements OnInit {
     this.noteService.getNote().subscribe(
       (res: any) => {
         let notes = res.data.data.filter((element: any) => {
-          return element.isArchived === false;
+          return element.isArchived === false && element.isDeleted === false;
         });
         this.notes = notes;
         this.notes.reverse();
@@ -33,5 +33,4 @@ export class NotesComponent implements OnInit {
       }
     );
   }
-  
 }

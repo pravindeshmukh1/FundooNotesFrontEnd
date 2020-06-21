@@ -7,9 +7,7 @@ import { NoteService } from 'src/app/services/note.service/note.service';
   styleUrls: ['./archive.component.scss'],
 })
 export class ArchiveComponent implements OnInit {
-  constructor(
-    private noteService: NoteService,
-  ) {}
+  constructor(private noteService: NoteService) {}
 
   allArchivenNote: Array<any>;
   ngOnInit(): void {
@@ -18,7 +16,7 @@ export class ArchiveComponent implements OnInit {
   getArchiveNotes() {
     this.noteService.getNote().subscribe((res: any) => {
       let archiveNotes = res.data.data.filter((element: any) => {
-        return element.isArchived === true;
+        return element.isArchived === true && element.isDeleted === false;
       });
       this.allArchivenNote = archiveNotes;
     });
