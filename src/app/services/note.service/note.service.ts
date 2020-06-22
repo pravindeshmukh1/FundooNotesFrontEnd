@@ -28,9 +28,12 @@ export class NoteService {
     return this.httpService.getNotes(`notes/getTrashNotesList`);
   }
   restoreNote(note) {
-    return this.httpService.postNote(`notes/updateNotes`, note);
+    return this.httpService.postNote(`notes/trashNotes`, note);
   }
   deleteNotePermanent(note) {
     return this.httpService.postNote(`notes/deleteForeverNotes`, note);
+  }
+  updateNote(note) {
+    return this.httpService.postNote(`notes/updateNotes`, note);
   }
 }
