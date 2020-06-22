@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Validators, FormControl } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service/user.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -46,6 +46,7 @@ export class LoginComponent implements OnInit {
     this.userService.login(userData).subscribe(
       (response: any) => {
         localStorage.setItem('token', response.id);
+        localStorage.setItem('email', response.email);
         this.snackBar.open('User Login Sucessfully', '', {
           duration: 2000,
         });
