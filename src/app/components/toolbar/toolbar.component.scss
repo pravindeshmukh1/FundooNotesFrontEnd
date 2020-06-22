@@ -5,6 +5,7 @@ $textcolor: grayscale(
 
 .mat-toolbar {
   background-color: $bgcolor;
+  border-bottom: inset;
 }
 
 .mat-icon {
@@ -14,9 +15,9 @@ $textcolor: grayscale(
 }
 
 .mat-sidenav {
-  width: 15%;
-  border: $bgcolor;
+  width: 17.5%;
   font-weight: 500;
+  border: $bgcolor;
 }
 .mat-sidenav-container {
   margin-top: 3.5%;
@@ -26,13 +27,6 @@ $textcolor: grayscale(
 .menu {
   margin-left: 0.2%;
 }
-.fundooTitle {
-  font-size: 20px;
-}
-.mat-form-field {
-  width: 30%;
-  margin-top: 4%;
-}
 
 .titleImage {
   height: 32px;
@@ -40,20 +34,25 @@ $textcolor: grayscale(
   margin-left: 5px;
 }
 
-.titleImage :hover {
-  color: gray;
-  opacity: 5px;
-}
-
 .fundooTitle {
   color: $textcolor;
   opacity: 10px;
-}
-.profile {
-  margin-left: 2em;
+  font-size: 20px;
 }
 
-.profile ::ng-deep .mat-select-arrow {
-  border-left: 0px solid transparent;
-  border-right: 0px solid transparent;
+.header {
+  display: flex;
+  flex-direction: row;
+}
+.profileimg {
+  width: 200px;
+  height: 100px;
+}
+.img {
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+}
+.list {
+  margin-right: 70px;
 }
