@@ -30,6 +30,9 @@ import { NoteService } from './services/note.service/note.service';
 import { ArchiveComponent } from './components/archive/archive.component';
 import { TrashComponent } from './components/trash/trash.component';
 import { TrashiconsComponent } from './components/trashicons/trashicons.component';
+import { FormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
+import { NotedialogComponent } from './components/notedialog/notedialog.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +51,7 @@ import { TrashiconsComponent } from './components/trashicons/trashicons.componen
     ArchiveComponent,
     TrashComponent,
     TrashiconsComponent,
+    NotedialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,6 +67,8 @@ import { TrashiconsComponent } from './components/trashicons/trashicons.componen
     MatIconModule,
     MatListModule,
     RxReactiveFormsModule,
+    FormsModule,
+    MatDialogModule,
   ],
   providers: [UserService, NoteService],
   bootstrap: [AppComponent],

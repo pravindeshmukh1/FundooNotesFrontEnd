@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { NoteService } from 'src/app/services/note.service/note.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material/dialog';
+import { NotedialogComponent } from '../notedialog/notedialog.component';
 
 @Component({
   selector: 'app-displaynotes',
@@ -12,9 +14,12 @@ export class DisplaynotesComponent implements OnInit {
   @Output() getNotes: EventEmitter<any> = new EventEmitter();
 
   pinned: boolean = false;
+  open: boolean = false;
+
   constructor(
     private noteService: NoteService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    public dialog: MatDialog
   ) {}
 
   pinNote() {
@@ -53,7 +58,7 @@ export class DisplaynotesComponent implements OnInit {
     };
     this.noteService.unArchiveNote(noteData).subscribe((res) => {
       this.getNotes.emit();
-      this.snackBar.open('Un Archive note', '', {
+      this.snackBar.open('Un-Archive note', '', {
         duration: 2000,
       });
     });
@@ -65,8 +70,10 @@ export class DisplaynotesComponent implements OnInit {
       isDeleted: true,
     };
     this.noteService.deleteNote(noteData).subscribe((res) => {
-      console.log('Delete Note', res);
       this.getNotes.emit();
+      this.snackBar.open('Delete note', 'Undo', {
+        duration: 2000,
+      });
     });
   }
   deleteNotePermanent() {
@@ -75,6 +82,9 @@ export class DisplaynotesComponent implements OnInit {
     };
     this.noteService.deleteNotePermanent(noteData).subscribe((res) => {
       this.getNotes.emit();
+      this.snackBar.open('Permanent Delete note', '', {
+        duration: 2000,
+      });
     });
   }
   restoreNote() {
@@ -83,9 +93,34 @@ export class DisplaynotesComponent implements OnInit {
       isDeleted: false,
     };
     this.noteService.restoreNote(noteData).subscribe((res) => {
-      console.log('update note', res);
-
       this.getNotes.emit();
+      this.snackBar.open('Restore note', '', {
+        duration: 2000,
+      });
+    });
+  }
+  openNoteDialog(): void {
+    const dialogRef = this.dialog.open(NotedialogComponent, {
+      data: { note: this.note },
+    });
+
+    dialogRef.afterClosed().subscribe((res) => {
+      if (res !== undefined) {
+        let noteData = {
+          noteId: res.noteIdList,
+          title: res.title,
+          description: res.description,
+          color: res.color,
+        };
+        this.noteService.updateNote(noteData).subscribe(
+          (res) => {
+            this.getNotes.emit();
+          },
+          (err) => {
+            console.error('Error occured', err);
+          }
+        );
+      }
     });
   }
 }

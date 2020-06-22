@@ -1,28 +1,18 @@
-.display mat-card {
-  margin-top: 2em;
-  margin-left: 1em;
-  width: 250px;
-  border-radius: 0.5em;
-  border-color: gray;
-  font-size: medium;
-  border: 0.1px inset gray;
-}
 .icons {
+  margin-right: 40px;
   margin-top: 1em;
-}
-.title {
-  font-weight: 500;
+  size: 30px;
 }
 .titlearea {
   display: flex;
   flex-direction: row;
 }
 .inputTitle {
-  font-size: medium;
-  font-weight: 500;
+  font-size: large;
+  font-weight: 450;
 }
 .description {
-  font-size: small;
+  font-size: medium;
   font-weight: 400;
 }
 
@@ -35,4 +25,13 @@
   border: 0;
   font-family: "Google Sans", Roboto, Arial, sans-serif;
   background-color: transparent;
+}
+.display {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 500px;
+  max-height: 750px;
+}
+mat-card {
+  width: auto;
 }

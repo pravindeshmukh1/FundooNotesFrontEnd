@@ -1,0 +1,31 @@
+<div class="display">
+  <mat-card [ngStyle]="{ 'background-color': data.note.color }">
+    <div class="titlearea">
+      <textarea
+        class="inputTitle"
+        [(ngModel)]="title"
+        placeholder="Title"
+        matTextareaAutosize
+        matAutosizeMinRows="1"
+        matAutosizeMaxRows="25"
+        >{{ title }}</textarea
+      >
+    </div>
+
+    <div class="titlearea">
+      <textarea
+        class="description"
+        [(ngModel)]="description"
+        placeholder="Description"
+        matTextareaAutosize
+        matAutosizeMinRows="1"
+        matAutosizeMaxRows="25"
+        >{{ description }}</textarea
+      >
+    </div>
+    <div class="icons" fxLayout="row" fxLayoutAlign="space-between end">
+      <app-icons [archivedNote]="data.note"></app-icons>
+      <button class="close" mat-button (click)="close()">Close</button>
+    </div>
+  </mat-card>
+</div>
