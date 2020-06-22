@@ -12,6 +12,7 @@ import { AuthGuard } from './guard/auth.guard';
 import { DisplaynotesComponent } from './components/displaynotes/displaynotes.component';
 import { ArchiveComponent } from './components/archive/archive.component';
 import { TrashComponent } from './components/trash/trash.component';
+import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 const routes: Routes = [
   {
     path: '',
@@ -44,6 +45,10 @@ const routes: Routes = [
       { path: 'archive', component: ArchiveComponent },
       { path: 'trash', component: TrashComponent },
     ],
+  },
+  {
+    path: '**',
+    component: PagenotfoundComponent,
   },
 ];
 

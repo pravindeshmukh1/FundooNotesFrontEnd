@@ -33,6 +33,7 @@ import { TrashiconsComponent } from './components/trashicons/trashicons.componen
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { NotedialogComponent } from './components/notedialog/notedialog.component';
+import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { NotedialogComponent } from './components/notedialog/notedialog.componen
     TrashComponent,
     TrashiconsComponent,
     NotedialogComponent,
+    PagenotfoundComponent,
   ],
   imports: [
     BrowserModule,
