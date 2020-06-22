@@ -35,11 +35,11 @@ export class CreatenoteComponent implements OnInit {
   }
 
   onClose() {
-    let node = {
+    let note = {
       title: this.title,
       description: this.description,
     };
-    this.noteService.addNote(node).subscribe(
+    this.noteService.addNote(note).subscribe(
       (res: any) => {
         this.getNotes.emit();
         this.title = null;

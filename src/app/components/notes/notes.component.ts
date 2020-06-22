@@ -12,7 +12,7 @@ export class NotesComponent implements OnInit {
 
   constructor(
     private noteService: NoteService,
-    private snackbar: MatSnackBar
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit() {
@@ -29,7 +29,9 @@ export class NotesComponent implements OnInit {
         this.notes.reverse();
       },
       (err) => {
-        this.snackbar.open('server error', err);
+        this.snackBar.open('Error occured at get note', '', {
+          duration: 2000,
+        });
       }
     );
   }
