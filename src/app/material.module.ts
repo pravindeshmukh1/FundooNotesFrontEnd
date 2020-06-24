@@ -18,6 +18,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { TextFieldModule } from '@angular/cdk/text-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   imports: [],
@@ -41,6 +43,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     TextFieldModule,
     MatSelectModule,
     MatGridListModule,
+    MatChipsModule,
+    MatDialogModule,
   ],
 })
 export class MaterialModule {}
