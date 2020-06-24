@@ -13,6 +13,7 @@ import { DisplaynotesComponent } from './components/displaynotes/displaynotes.co
 import { ArchiveComponent } from './components/archive/archive.component';
 import { TrashComponent } from './components/trash/trash.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
+import { ReminderComponent } from './components/reminder/reminder.component';
 const routes: Routes = [
   {
     path: '',
@@ -44,6 +45,7 @@ const routes: Routes = [
       { path: 'getAllNotes', component: DisplaynotesComponent },
       { path: 'archive', component: ArchiveComponent },
       { path: 'trash', component: TrashComponent },
+      { path: 'reminder', component: ReminderComponent },
     ],
   },
   {

@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -15,11 +14,6 @@ import { PwdResetComponent } from './components/pwd-reset/pwd-reset.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
 import { CreatenoteComponent } from './components/createnote/createnote.component';
 import { SearchboxComponent } from './components/searchbox/searchbox.component';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
@@ -31,9 +25,10 @@ import { ArchiveComponent } from './components/archive/archive.component';
 import { TrashComponent } from './components/trash/trash.component';
 import { TrashiconsComponent } from './components/trashicons/trashicons.component';
 import { FormsModule } from '@angular/forms';
-import { MatDialogModule } from '@angular/material/dialog';
 import { NotedialogComponent } from './components/notedialog/notedialog.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import { ReminderComponent } from './components/reminder/reminder.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +49,7 @@ import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.co
     TrashiconsComponent,
     NotedialogComponent,
     PagenotfoundComponent,
+    ReminderComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,14 +59,10 @@ import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.co
     ReactiveFormsModule,
     HttpClientModule,
     LayoutModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
     RxReactiveFormsModule,
     FormsModule,
-    MatDialogModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule,
   ],
   providers: [UserService, NoteService],
   bootstrap: [AppComponent],

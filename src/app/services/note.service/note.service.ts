@@ -36,4 +36,10 @@ export class NoteService {
   updateNote(note) {
     return this.httpService.postNote(`notes/updateNotes`, note);
   }
+  addReminder(note) {
+    return this.httpService.postNote(`notes/addUpdateReminderNotes`, note);
+  }
+  deleteReminder(note) {
+    return this.httpService.postNote(`notes/removeReminderNotes`, note);
+  }
 }

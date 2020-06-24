@@ -3,6 +3,7 @@ import { NoteService } from 'src/app/services/note.service/note.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { NotedialogComponent } from '../notedialog/notedialog.component';
+import { date } from '@rxweb/reactive-form-validators';
 
 @Component({
   selector: 'app-displaynotes',
@@ -15,6 +16,7 @@ export class DisplaynotesComponent implements OnInit {
 
   pinned: boolean = false;
   open: boolean = false;
+  removable: boolean = true;
 
   constructor(
     private noteService: NoteService,
@@ -141,6 +143,55 @@ export class DisplaynotesComponent implements OnInit {
       }
     );
   }
+
+  setReminder(data: Date) {
+    let dateTime = data.toString();
+    console.log('Date Time', dateTime);
+
+    let reminder =
+      dateTime.slice(4, 10) +
+      ',' +
+      dateTime.slice(11, 15) +
+      ' ' +
+      dateTime.slice(16, 25);
+    console.log('Reminder Slice', reminder);
+    let noteData = {
+      noteIdList: [this.note.id],
+      reminder: reminder,
+    };
+    this.noteService.addReminder(noteData).subscribe(
+      (res) => {
+        this.getNotes.emit();
+        this.snackBar.open('Set Reminder', '', {
+          duration: 2000,
+        });
+      },
+      (err) => {
+        this.snackBar.open('Error occured at set reminder note', '', {
+          duration: 2000,
+        });
+      }
+    );
+  }
+  deleteReminder() {
+    let noteData = {
+      noteIdList: [this.note.id],
+    };
+    this.noteService.deleteReminder(noteData).subscribe(
+      (res) => {
+        this.getNotes.emit();
+        this.snackBar.open('Remove Reminder', '', {
+          duration: 2000,
+        });
+      },
+      (err) => {
+        this.snackBar.open('Error occured at remove reminder note', '', {
+          duration: 2000,
+        });
+      }
+    );
+  }
+
   openNoteDialog(): void {
     const dialogRef = this.dialog.open(NotedialogComponent, {
       data: { note: this.note },

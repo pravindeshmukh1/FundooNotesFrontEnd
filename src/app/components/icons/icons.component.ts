@@ -1,5 +1,13 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  ViewChild,
+} from '@angular/core';
+import { MatMenuTrigger } from '@angular/material/menu';
+import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-icons',
   templateUrl: './icons.component.html',
@@ -7,14 +15,20 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class IconsComponent implements OnInit {
   @Input() archivedNote: any;
+  @ViewChild(MatMenuTrigger, { static: false }) trigger: MatMenuTrigger;
+
   @Output() color: EventEmitter<any> = new EventEmitter();
   @Output() archive: EventEmitter<any> = new EventEmitter();
   @Output() unarchive: EventEmitter<any> = new EventEmitter();
   @Output() delete: EventEmitter<any> = new EventEmitter();
   @Output() deletePermanent: EventEmitter<any> = new EventEmitter();
   @Output() restorePermanent: EventEmitter<any> = new EventEmitter();
+  @Output() setReminder: EventEmitter<any> = new EventEmitter();
 
-  constructor() {}
+  dateTimeRange: Date;
+  min: Date = new Date();
+
+  constructor(private dialog: MatDialog) {}
 
   ngOnInit(): void {}
 
@@ -50,5 +64,9 @@ export class IconsComponent implements OnInit {
   }
   restoreNote() {
     this.restorePermanent.emit();
+  }
+  callReminder(dateTimeRange) {
+    this.setReminder.emit(dateTimeRange);
+    this.trigger.closeMenu();
   }
 }
