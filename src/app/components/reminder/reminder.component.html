@@ -1,0 +1,7 @@
+<div fxLayout="row wrap">
+  <app-displaynotes
+    (getNotes)="getReminderNote()"
+    *ngFor="let item of allReminderNote"
+    [note]="item"
+  ></app-displaynotes>
+</div>
