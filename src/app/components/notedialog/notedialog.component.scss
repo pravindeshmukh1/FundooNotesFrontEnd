@@ -1,19 +1,14 @@
 .icons {
   margin-right: 40px;
   margin-top: 1em;
-  size: 30px;
 }
 .titlearea {
   display: flex;
   flex-direction: row;
 }
-.inputTitle {
-  font-size: large;
-  font-weight: 450;
-}
+.inputTitle,
 .description {
-  font-size: medium;
-  font-weight: 400;
+  font-size: small;
 }
 
 .description,
@@ -25,10 +20,4 @@
   border: 0;
   font-family: "Google Sans", Roboto, Arial, sans-serif;
   background-color: transparent;
-}
-.display {
-  margin-top: 5px;
-  margin-bottom: 5px;
-  width: 500px;
-  max-height: 750px;
 }
