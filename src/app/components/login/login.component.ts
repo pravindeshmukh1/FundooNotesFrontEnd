@@ -41,12 +41,14 @@ export class LoginComponent implements OnInit {
     let userData = {
       email: this.Email.value,
       password: this.Password.value,
-      service: 'Basic',
+      service: 'advance',
     };
     this.userService.login(userData).subscribe(
       (response: any) => {
         localStorage.setItem('token', response.id);
         localStorage.setItem('email', response.email);
+        localStorage.setItem('firstName', response.firstName);
+        localStorage.setItem('lastName', response.lastName);
         this.snackBar.open('User Login Sucessfully', '', {
           duration: 2000,
         });

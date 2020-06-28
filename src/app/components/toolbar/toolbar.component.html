@@ -30,7 +30,7 @@
       matTooltip="List View"
       matTooltipPosition="below"
       (click)="changeView()"
-      *ngIf="grid"
+      *ngIf="isGrid"
     >
       <img src="../../../assets/imeges/view-agenda-outline.svg" />
     </button>
@@ -39,7 +39,7 @@
       matTooltip="Grid View"
       matTooltipPosition="below"
       (click)="changeView()"
-      *ngIf="!grid"
+      *ngIf="!isGrid"
     >
       <img src="../../../assets/imeges/view-grid-outline.svg" />
     </button>
@@ -68,7 +68,7 @@
             />
           </mat-icon>
 
-          <h2>User Id</h2>
+          <p>User Id</p>
           {{ email }}
 
           <button mat-raised-button (click)="signOut()">
@@ -101,7 +101,7 @@
           Reminders
         </mat-list-item>
       </div>
-      <div routerLink="/dashboard/lable" routerLinkActive="notes">
+      <div routerLink="/dashboard/label" routerLinkActive="notes">
         <mat-list-item>
           <mat-icon class="menu-item" mat-button (click)="showInfo()"
             ><img src="../../../assets/imeges/edit-black-24dp.svg" />

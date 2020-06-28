@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -10,7 +10,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class ToolbarComponent implements OnInit {
   constructor(private route: Router, private snackBar: MatSnackBar) {}
   title: string = 'FundooNote';
-  grid: boolean = false;
+  isGrid: boolean = false;
   profile: boolean = false;
   email = localStorage.getItem('email');
 
@@ -27,7 +27,7 @@ export class ToolbarComponent implements OnInit {
   }
 
   changeView() {
-    this.grid = !this.grid;
+    this.isGrid = !this.isGrid;
   }
   profileCard() {
     this.profile = !this.profile;
