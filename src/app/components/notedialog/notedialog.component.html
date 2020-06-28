@@ -9,6 +9,26 @@
       matAutosizeMaxRows="25"
       >{{ title }}</textarea
     >
+    <button
+      matSuffix
+      mat-icon-button
+      matTooltip="Pin note"
+      matTooltipPosition="below"
+      (click)="pinNote()"
+      *ngIf="data.note.isPined === false"
+    >
+      <img src="../../../assets/imeges/pin-outline.svg" />
+    </button>
+    <button
+      matSuffix
+      mat-icon-button
+      matTooltip="Unpin note"
+      matTooltipPosition="below"
+      (click)="unPinNote()"
+      *ngIf="data.note.isPined === true"
+    >
+      <img src="../../../assets/imeges/pin.svg" />
+    </button>
   </div>
 
   <div class="titlearea">

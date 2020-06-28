@@ -1,6 +1,21 @@
 <app-createnote (getNotes)="getNotes()"></app-createnote>
+
+<span class="noteList" *ngIf="pinedLength !== 0">Pinned</span>
 <div fxLayout="row wrap">
   <app-displaynotes
+    (pinNotes)="getPinnedNotes()"
+    (getNotes)="getNotes()"
+    *ngFor="let item of pined"
+    [note]="item"
+  ></app-displaynotes>
+</div>
+
+<span class="noteList" *ngIf="pinedLength !== 0 && notesLength !== 0">
+  Others
+</span>
+<div fxLayout="row wrap">
+  <app-displaynotes
+    (pinNotes)="getPinnedNotes()"
     (getNotes)="getNotes()"
     *ngFor="let item of notes"
     [note]="item"
