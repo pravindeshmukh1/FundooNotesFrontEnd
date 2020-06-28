@@ -15,6 +15,26 @@
         readonly
         >{{ note.title }}</textarea
       >
+      <button
+        matSuffix
+        mat-icon-button
+        matTooltip="Pin note"
+        matTooltipPosition="below"
+        (click)="pinNote()"
+        *ngIf="note.isPined === false"
+      >
+        <img src="../../../assets/imeges/pin-outline.svg" />
+      </button>
+      <button
+        matSuffix
+        mat-icon-button
+        matTooltip="Unpin note"
+        matTooltipPosition="below"
+        (click)="unPinNote()"
+        *ngIf="note.isPined === true"
+      >
+        <img src="../../../assets/imeges/pin.svg" />
+      </button>
     </div>
 
     <div class="titlearea">
@@ -30,13 +50,13 @@
     </div>
     <div class="icons">
       <mat-chip-list>
-        <mat-chip *ngIf="note.reminder !== null">
-          {{ note?.reminder }}
-
+        <mat-chip [removable]="removable" *ngIf="note?.reminder.length !== 0">
+          {{ (note?.reminder)[0] | date: "MMM dd, hh:mm a" }}
           <mat-icon matChipRemove *ngIf="removable" (click)="deleteReminder()"
             >cancel</mat-icon
           >
         </mat-chip>
+        <mat-chip *ngFor="let item of note.label"> {{ item.label }} </mat-chip>
       </mat-chip-list>
     </div>
 
@@ -50,6 +70,8 @@
         (delete)="deleteNote()"
         (deletePermanent)="deleteNotePermanent()"
         (restorePermanent)="restoreNote()"
+        (label)="addLableToNote($event)"
+        (collaborator)="openDialougeBox()"
       ></app-icons>
     </div>
   </mat-card>

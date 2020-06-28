@@ -3,7 +3,7 @@ import { NoteService } from 'src/app/services/note.service/note.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { NotedialogComponent } from '../notedialog/notedialog.component';
-import { date } from '@rxweb/reactive-form-validators';
+import { CollaboratorComponent } from '../collaborator/collaborator.component';
 
 @Component({
   selector: 'app-displaynotes',
@@ -14,19 +14,17 @@ export class DisplaynotesComponent implements OnInit {
   @Input() note: any;
   @Output() getNotes: EventEmitter<any> = new EventEmitter();
 
-  pinned: boolean = false;
+  @Output() pinNotes: EventEmitter<any> = new EventEmitter();
+
+  pined: boolean = false;
   open: boolean = false;
-  removable: boolean = true;
+  removable = true;
 
   constructor(
     private noteService: NoteService,
     private snackBar: MatSnackBar,
     public dialog: MatDialog
   ) {}
-
-  pinNote() {
-    this.pinned = !this.pinned;
-  }
 
   ngOnInit() {}
 
@@ -46,7 +44,47 @@ export class DisplaynotesComponent implements OnInit {
       }
     );
   }
-
+  pinNote() {
+    let noteData = {
+      noteIdList: [this.note.id],
+      isPined: true,
+      isArchived: this.note.isArchived === true ? false : this.note.isArchived,
+    };
+    this.noteService.pinNote(noteData).subscribe(
+      (res) => {
+        this.getNotes.emit();
+        this.pinNotes.emit();
+        this.snackBar.open('Pined note', '', {
+          duration: 2000,
+        });
+      },
+      (err) => {
+        this.snackBar.open('Error occured Pin note', '', {
+          duration: 2000,
+        });
+      }
+    );
+  }
+  unPinNote() {
+    let noteData = {
+      noteIdList: [this.note.id],
+      isPined: false,
+    };
+    this.noteService.unPinNote(noteData).subscribe(
+      (res) => {
+        this.getNotes.emit();
+        this.pinNotes.emit();
+        this.snackBar.open('UnPined note', '', {
+          duration: 2000,
+        });
+      },
+      (err) => {
+        this.snackBar.open('Error occured UnPin note', '', {
+          duration: 2000,
+        });
+      }
+    );
+  }
   setArchive() {
     let noteData = {
       noteIdList: [this.note.id],
@@ -154,7 +192,7 @@ export class DisplaynotesComponent implements OnInit {
       dateTime.slice(11, 15) +
       ' ' +
       dateTime.slice(16, 25);
-    console.log('Reminder Slice', reminder);
+      
     let noteData = {
       noteIdList: [this.note.id],
       reminder: reminder,
@@ -192,6 +230,27 @@ export class DisplaynotesComponent implements OnInit {
     );
   }
 
+  addLableToNote(label: any) {
+    let noteData = {
+      userId: [this.note.id],
+      label: label.label,
+    };
+
+    this.noteService.addLableToNote(noteData).subscribe(
+      (res) => {
+        this.getNotes.emit(label.label);
+        this.snackBar.open('Remove Reminder', '', {
+          duration: 2000,
+        });
+      },
+      (err) => {
+        this.snackBar.open('Error occured at remove reminder note', '', {
+          duration: 2000,
+        });
+      }
+    );
+  }
+
   openNoteDialog(): void {
     const dialogRef = this.dialog.open(NotedialogComponent, {
       data: { note: this.note },
@@ -203,7 +262,6 @@ export class DisplaynotesComponent implements OnInit {
           noteId: res.noteIdList,
           title: res.title,
           description: res.description,
-          color: res.color,
         };
         this.noteService.updateNote(noteData).subscribe(
           (res) => {
@@ -217,5 +275,13 @@ export class DisplaynotesComponent implements OnInit {
         );
       }
     });
+  }
+  openDialougeBox() {
+    const dialogRef = this.dialog.open(CollaboratorComponent, {
+      data: {
+        note: this.note,
+      },
+    });
+    dialogRef.afterClosed().subscribe((res) => {});
   }
 }

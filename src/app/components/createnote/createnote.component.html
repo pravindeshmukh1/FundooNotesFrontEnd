@@ -30,7 +30,7 @@
           matTooltip="Pin note"
           matTooltipPosition="below"
           (click)="pinNote()"
-          *ngIf="!pinned"
+          *ngIf="!pined"
         >
           <img src="../../../assets/imeges/pin-outline.svg" />
         </button>
@@ -40,7 +40,7 @@
           matTooltip="Unpin note"
           matTooltipPosition="below"
           (click)="pinNote()"
-          *ngIf="pinned"
+          *ngIf="pined"
         >
           <img src="../../../assets/imeges/pin.svg" />
         </button>

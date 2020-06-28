@@ -8,7 +8,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./createnote.component.scss'],
 })
 export class CreatenoteComponent implements OnInit {
-  pinned: boolean = false;
+  pined: boolean = false;
   isPopUp: boolean = false;
   title: string = null;
   description: string;
@@ -27,7 +27,7 @@ export class CreatenoteComponent implements OnInit {
   ) {}
   ngOnInit(): void {}
   pinNote() {
-    this.pinned = !this.pinned;
+    this.pined = !this.pined;
   }
 
   openCard() {
@@ -38,12 +38,14 @@ export class CreatenoteComponent implements OnInit {
     let note = {
       title: this.title,
       description: this.description,
+      isPined: this.pined,
     };
     this.noteService.addNote(note).subscribe(
       (res: any) => {
         this.getNotes.emit();
         this.title = null;
         this.description = null;
+        this.pined = false;
         this.snackBar.open('Note Added', '', {
           duration: 4000,
         });
