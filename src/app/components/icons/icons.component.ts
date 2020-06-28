@@ -7,7 +7,6 @@ import {
   ViewChild,
 } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
-import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-icons',
   templateUrl: './icons.component.html',
@@ -16,7 +15,6 @@ import { MatDialog } from '@angular/material/dialog';
 export class IconsComponent implements OnInit {
   @Input() archivedNote: any;
   @ViewChild(MatMenuTrigger, { static: false }) trigger: MatMenuTrigger;
-
   @Output() color: EventEmitter<any> = new EventEmitter();
   @Output() archive: EventEmitter<any> = new EventEmitter();
   @Output() unarchive: EventEmitter<any> = new EventEmitter();
@@ -24,11 +22,13 @@ export class IconsComponent implements OnInit {
   @Output() deletePermanent: EventEmitter<any> = new EventEmitter();
   @Output() restorePermanent: EventEmitter<any> = new EventEmitter();
   @Output() setReminder: EventEmitter<any> = new EventEmitter();
+  @Output() label: EventEmitter<any> = new EventEmitter();
+  @Output() collaborator: EventEmitter<any> = new EventEmitter();
 
   dateTimeRange: Date;
   min: Date = new Date();
 
-  constructor(private dialog: MatDialog) {}
+  constructor() {}
 
   ngOnInit(): void {}
 
@@ -68,5 +68,11 @@ export class IconsComponent implements OnInit {
   callReminder(dateTimeRange) {
     this.setReminder.emit(dateTimeRange);
     this.trigger.closeMenu();
+  }
+  openLabel(input: any) {
+    this.label.emit(input);
+  }
+  openCollaborator() {
+    this.collaborator.emit();
   }
 }

@@ -27,7 +27,11 @@
       </mat-menu>
     </button>
 
-    <button mat-icon-button matTooltip="Collaborator">
+    <button
+      mat-icon-button
+      matTooltip="Collaborator"
+      (click)="openCollaborator()"
+    >
       <mat-icon class="icons">
         person_add_alt_1
       </mat-icon>
@@ -84,12 +88,22 @@
       <mat-icon class="icons">
         more_vert
       </mat-icon>
-      <mat-menu #moreMenu="matMenu">
-        <div>
-          <div mat-menu-item (click)="deleteNote()">
-            Delete note
-          </div>
+      <mat-menu #moreMenu="matMenu" yPosition="below">
+        <div mat-menu-item (click)="deleteNote()">
+          Delete note
         </div>
+        <button mat-menu-item [matMenuTriggerFor]="lableMenu">
+          Add Label
+        </button>
+        <button mat-menu-item>Make a copy</button>
+        <button mat-menu-item>Add drowing</button>
+        <button mat-menu-item>Show checkboxes</button>
+      </mat-menu>
+      <mat-menu #lableMenu="matMenu">
+        <app-labelmenu
+          [note]="archivedNote"
+          (changeLabels)="openLabel($event)"
+        ></app-labelmenu>
       </mat-menu>
     </button>
   </mat-list-item>
