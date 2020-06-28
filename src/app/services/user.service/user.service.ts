@@ -25,4 +25,7 @@ export class UserService {
       resetData
     );
   }
+  getAllUser() {
+    return this.httpService.getAll(`/user/getAdminUserList`);
+  }
 }

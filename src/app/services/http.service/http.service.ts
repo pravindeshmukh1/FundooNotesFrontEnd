@@ -49,4 +49,7 @@ export class HttpService {
     };
     return this.http.get(environment.baseUrl + url, httpOption);
   }
+  getAll(url) {
+    return this.http.get(environment.baseUrl + url);
+  }
 }
