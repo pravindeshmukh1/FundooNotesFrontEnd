@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NoteService } from 'src/app/services/note.service/note.service';
-import { element } from 'protractor';
-import { error } from 'console';
 
 @Component({
   selector: 'app-reminder',
@@ -19,7 +17,7 @@ export class ReminderComponent implements OnInit {
     this.noteService.getNote().subscribe(
       (res: any) => {
         let reminderNotes = res.data.data.filter((element: any) => {
-          return element.reminder !== null && element.isDeleted === false;
+          return element.reminder.length !== 0 && element.isDeleted === false;
         });
         this.allReminderNote = reminderNotes;
       },
