@@ -14,6 +14,7 @@ import { ArchiveComponent } from './components/archive/archive.component';
 import { TrashComponent } from './components/trash/trash.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 import { ReminderComponent } from './components/reminder/reminder.component';
+import { LabelComponent } from './components/label/label.component';
 const routes: Routes = [
   {
     path: '',
@@ -42,10 +43,10 @@ const routes: Routes = [
     children: [
       { path: '', component: NotesComponent },
       { path: 'notes', component: NotesComponent },
-      { path: 'getAllNotes', component: DisplaynotesComponent },
       { path: 'archive', component: ArchiveComponent },
       { path: 'trash', component: TrashComponent },
       { path: 'reminder', component: ReminderComponent },
+      { path: 'label', component: LabelComponent },
     ],
   },
   {

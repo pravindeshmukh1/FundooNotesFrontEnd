@@ -7,39 +7,68 @@ import { HttpService } from '../http.service/http.service';
 export class NoteService {
   constructor(private httpService: HttpService) {}
   addNote(note: Object) {
-    return this.httpService.postNote('notes/addNotes', note);
+    return this.httpService.postAuth('notes/addNotes', note);
   }
   getNote() {
-    return this.httpService.getNotes(`notes/getNotesList`);
+    return this.httpService.getAuth(`notes/getNotesList`);
+  }
+  pinNote(note) {
+    return this.httpService.postAuth(`notes/pinUnpinNotes`, note);
+  }
+  unPinNote(note) {
+    return this.httpService.postAuth(`notes/pinUnpinNotes`, note);
   }
   changeColor(note: Object) {
-    return this.httpService.postNote(`notes/changesColorNotes`, note);
+    return this.httpService.postAuth(`notes/changesColorNotes`, note);
   }
   archiveNote(note: Object) {
-    return this.httpService.postNote(`notes/archiveNotes`, note);
+    return this.httpService.postAuth(`notes/archiveNotes`, note);
   }
   unArchiveNote(note: Object) {
-    return this.httpService.postNote(`notes/archiveNotes`, note);
+    return this.httpService.postAuth(`notes/archiveNotes`, note);
   }
   deleteNote(note: Object) {
-    return this.httpService.postNote(`notes/trashNotes`, note);
+    return this.httpService.postAuth(`notes/trashNotes`, note);
   }
   getTrashNotes() {
-    return this.httpService.getNotes(`notes/getTrashNotesList`);
+    return this.httpService.getAuth(`notes/getTrashNotesList`);
   }
   restoreNote(note) {
-    return this.httpService.postNote(`notes/trashNotes`, note);
+    return this.httpService.postAuth(`notes/trashNotes`, note);
   }
   deleteNotePermanent(note) {
-    return this.httpService.postNote(`notes/deleteForeverNotes`, note);
+    return this.httpService.postAuth(`notes/deleteForeverNotes`, note);
   }
   updateNote(note) {
-    return this.httpService.postNote(`notes/updateNotes`, note);
+    return this.httpService.postAuth(`notes/updateNotes`, note);
   }
   addReminder(note) {
-    return this.httpService.postNote(`notes/addUpdateReminderNotes`, note);
+    return this.httpService.postAuth(`notes/addUpdateReminderNotes`, note);
   }
   deleteReminder(note) {
-    return this.httpService.postNote(`notes/removeReminderNotes`, note);
+    return this.httpService.postAuth(`notes/removeReminderNotes`, note);
+  }
+  addLableToNote(note) {
+    return this.httpService.postAuth(
+      `noteLabels/${note.id}/updateNoteLabel`,
+      note
+    );
+  }
+  createLabel(note) {
+    return this.httpService.postAuth(`noteLabels`, note);
+  }
+  addCollaborator(note) {
+    console.log(note.id);
+
+    return this.httpService.postAuth(
+      `notes/${note.id}/AddcollaboratorsNotes`,
+      note
+    );
+  }
+  removeCollaborator(note) {
+    return this.httpService.postAuth(
+      `notes/${note.id}/removeCollaboratorsNotes`,
+      note
+    );
   }
 }

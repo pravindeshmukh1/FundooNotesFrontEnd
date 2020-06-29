@@ -30,7 +30,7 @@ export class HttpService {
     });
   }
 
-  postNote(url: string, note: Object) {
+  postAuth(url: string, note: Object) {
     let httpOption = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -40,7 +40,7 @@ export class HttpService {
     return this.http.post(environment.baseUrl + url, note, httpOption);
   }
 
-  getNotes(url) {
+  getAuth(url) {
     let httpOption = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -49,6 +49,7 @@ export class HttpService {
     };
     return this.http.get(environment.baseUrl + url, httpOption);
   }
+
   getAll(url) {
     return this.http.get(environment.baseUrl + url);
   }

@@ -29,7 +29,9 @@ import { NotedialogComponent } from './components/notedialog/notedialog.componen
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { ReminderComponent } from './components/reminder/reminder.component';
-
+import { LabelComponent } from './components/label/label.component';
+import { LabelmenuComponent } from './components/labelmenu/labelmenu.component';
+import { CollaboratorComponent } from './components/collaborator/collaborator.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +52,9 @@ import { ReminderComponent } from './components/reminder/reminder.component';
     NotedialogComponent,
     PagenotfoundComponent,
     ReminderComponent,
+    LabelComponent,
+    LabelmenuComponent,
+    CollaboratorComponent,
   ],
   imports: [
     BrowserModule,
