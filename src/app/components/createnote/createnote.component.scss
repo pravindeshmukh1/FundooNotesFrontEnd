@@ -1,11 +1,12 @@
-.close {
-  margin-left: 18em;
-}
+@import "../../scss/variables";
+@import "../../scss/mixin.scss";
 mat-card {
+  @include dimension(none, 32em, 0.5em);
+  @include font(small, none, none);
   margin-top: 2em;
-  width: 32em;
-  border-radius: 0.5em;
-  border-color: gray;
-  font-size: small;
-  border: 1px outset gray;
+  border-color: $bdcolor;
+  border: 1px outset $bdcolor;
+  .close {
+    margin-left: 18em;
+  }
 }

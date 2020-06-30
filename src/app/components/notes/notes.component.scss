@@ -1,6 +1,8 @@
+@import "../../scss/variables";
 .noteList {
-  color: #5f6368;
+  color: $bdcolor;
   font-weight: 500;
   line-height: 1rem;
   position: sticky;
+  margin-left: 3em;
 }

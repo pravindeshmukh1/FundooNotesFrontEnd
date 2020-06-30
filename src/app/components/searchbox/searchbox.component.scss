@@ -1,14 +1,12 @@
+@import "src/app/scss/mixin.scss";
+
 mat-card {
   margin-left: 5%;
-  width: 630px;
-  height: 45px;
-  margin-right: 45em;
-  border-radius: 0.5em;
-}
-
-mat-form-field {
-  width: 100%;
-  font-size: 18px;
-  height: 70px;
- 
+  margin-right: 65em;
+  @include dimension(45px, 40%, 5%);
+  mat-form-field {
+    width: 100%;
+    margin-top: 1em;
+    @include font(18px, medium, 60%);
+  }
 }

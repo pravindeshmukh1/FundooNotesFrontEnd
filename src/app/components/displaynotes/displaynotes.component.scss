@@ -1,37 +1,15 @@
-.display mat-card {
-  margin-top: 2em;
-  margin-left: 1em;
+@import "../notedialog/notedialog.component.scss";
+@import "../../scss/variables";
+
+mat-card {
+  $fontSize: medium;
+
+  margin-top: 1em;
+  margin-left: 2em;
   width: 250px;
   border-radius: 0.5em;
-  border-color: gray;
-  font-size: medium;
-  border: 0.1px inset gray;
+  border-color: $bdcolor;
+  font-size: $fontSize;
+  border: 0.1px inset $bdcolor;
   margin-bottom: 20px;
-}
-.title {
-  font-weight: 500;
-}
-.titlearea {
-  display: flex;
-  flex-direction: row;
-}
-.inputTitle {
-  font-size: medium;
-  font-weight: 500;
-}
-.description {
-  font-size: small;
-  font-weight: 400;
-  margin-bottom: 10px;
-}
-
-.description,
-.inputTitle {
-  width: 500px;
-  overflow-y: hidden;
-  resize: none;
-  outline: none;
-  border: 0;
-  font-family: "Google Sans", Roboto, Arial, sans-serif;
-  background-color: transparent;
 }

@@ -1,10 +1,15 @@
-<div fxLayoutAlign="start center ">
+<div fxLayout="column" fxLayoutAlign="center stretch">
   <mat-card fxLayoutAlign="start center ">
     <mat-form-field floatLabel="never">
-      <input matInput placeholder="Search" />
+      <input
+        matInput
+        autocomplete="off"
+        autofocus
+        placeholder="Search"
+      />
       <button
         matPrefix
-        autocomplete="off"
+        matInput
         mat-icon-button
         matTooltip="search"
         matTooltipPosition="below"

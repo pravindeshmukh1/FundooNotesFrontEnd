@@ -1,0 +1,10 @@
+@mixin font($size, $weight, $opacity) {
+  font-size: $size;
+  font-weight: $weight;
+  opacity: $opacity;
+}
+@mixin dimension($height, $width, $redius) {
+  height: $height;
+  width: $width;
+  border-radius: $redius;
+}

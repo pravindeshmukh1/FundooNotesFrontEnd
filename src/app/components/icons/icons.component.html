@@ -1,4 +1,4 @@
-<div class="icon-menu" *ngIf="archivedNote.isDeleted !== true">
+<div *ngIf="archivedNote.isDeleted !== true">
   <mat-list-item>
     <button
       mat-icon-button
@@ -47,7 +47,7 @@
       </mat-icon>
       <mat-menu #colorMenu="matMenu">
         <div class="pop">
-          <div *ngFor="let color of colors" class="colorButton">
+          <div *ngFor="let color of colors">
             <button
               mat-mini-fab
               [style.background]="color?.code"

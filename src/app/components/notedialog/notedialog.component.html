@@ -1,5 +1,5 @@
 <mat-card [ngStyle]="{ 'background-color': data.note.color }">
-  <div class="titlearea">
+  <div fxLayout="row">
     <textarea
       class="inputTitle"
       [(ngModel)]="title"
@@ -31,7 +31,7 @@
     </button>
   </div>
 
-  <div class="titlearea">
+  <div fxLayout="row">
     <textarea
       class="description"
       [(ngModel)]="description"
@@ -42,7 +42,7 @@
       >{{ description }}</textarea
     >
   </div>
-  <div class="icons" fxLayout="row" fxLayoutAlign="space-between end">
+  <div fxLayout="row" fxLayoutAlign="space-between end">
     <app-icons [archivedNote]="data.note"></app-icons>
     <button class="close" mat-button (click)="close()">Close</button>
   </div>
